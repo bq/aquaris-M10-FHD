@@ -34,7 +34,7 @@
 
 #define IDLE_8163_BRINGUP	0
 #define DPIDLE_EN		1
-#define SOIDLE_EN		1
+#define SOIDLE_EN		0
 
 /*
 * MCDI DVT IPI Test and GPT test

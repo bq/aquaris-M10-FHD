@@ -1452,7 +1452,10 @@ static void ptp_init_det(struct ptp_det *det, struct ptp_devinfo *devinfo)
 		det->DCMDET	= devinfo->CPU_DCMDET;
 		det->DCBDET	= devinfo->CPU_DCBDET;
 		// det->VBOOT	= PTP_VOLT_TO_PMIC_VAL(mt_cpufreq_cur_vproc(MT_CPU_DVFS_LITTLE));
+		/* Vsram and Vproc use the same buck. Besides, Vmin of Vsram is 115000 * 10uV.
+		   So, I need to override default setting */
 		det->VMIN	= PTP_VOLT_TO_PMIC_VAL(115000); // override default setting
+		det->VMAX	= PTP_VOLT_TO_PMIC_VAL(130000); // for overdrive IC
 		break;
 
 	case PTP_DET_GPUSYS:
